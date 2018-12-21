@@ -1,6 +1,22 @@
 # asterismo
 
+[![Imagem](.github/assets/asterismo_logo.jpg)](https://asterismo.gerardo-junior.com/)
+
 > The github project manager
+
+```
+    [+] AUTOR:        Gerardo Junior
+    [+] SITE:         https://gerardo-junior.com
+    [+] EMAIL:        me@gerardo-junior.com
+    [+] GITHUB:       https://github.com/gerardo-junior/asterismo
+    [+] TELEGRAM:     @MrGerardoJunior
+    [+] URL:          https://asterismo.gerardo-junior.com/
+```
+
+| [master](https://asterismo.gerardo-junior.com/)  | [develop](https://asterismo-staging.herokuapp.com/)  |
+| :------------: | :------------: |
+| [![Build Status](https://travis-ci.org/gerardo-junior/asterismo.svg?branch=master)](https://travis-ci.org/gerardo-junior/asterismo)  | [![Build Status](https://travis-ci.org/gerardo-junior/asterismo.svg?branch=develop)](https://travis-ci.org/gerardo-junior/asterismo)  |
+
 
 ## Build Setup
 
