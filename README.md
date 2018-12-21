@@ -1,4 +1,4 @@
-# asterismo
+# Asterismo
 
 [![Imagem](.github/assets/asterismo_logo.jpg)](https://asterismo.gerardo-junior.com/)
 
