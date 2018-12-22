@@ -1,0 +1,59 @@
+language: bash
+sudo: true
+
+services:
+  - docker
+
+before_cache:
+  # Save tagged docker images
+  - mkdir -p $HOME/docker && docker images -a --filter='dangling=false' --format '{{.Repository}}:{{.Tag}} {{.ID}}' | xargs -n 2 -t sh -c 'test -e $HOME/docker/$1.tar.gz || docker save $0 | gzip -2 > $HOME/docker/$1.tar.gz'
+
+before_install:
+  # Load cached docker images
+  - if [[ -d $HOME/docker ]]; then ls $HOME/docker/*.tar.gz | xargs -I {file} sh -c "zcat {file} | docker load"; fi
+  - docker-compose pull
+
+cache:
+  bundler: true
+  directories:
+    - $HOME/docker
+    - vendor
+
+jobs:  
+  include:
+    # - stage: Build
+    #   name: Build docker image  
+    #   script: docker-compose build
+
+    # - stage: Tests
+    #   name: Lint tests
+    #   script: docker-compose run nuxt npm run test-lint
+    
+    # - stage: Tests
+    #   name: Unit tests
+    #   script: docker-compose run nuxt npm run test-unit
+
+    # - stage: Tests
+    #   name: e2e tests
+    #   script: docker-compose run nuxt npm run test-e2e
+    
+    # - stage: Deploy
+    #   name: Deploy to heroku
+    #   deploy: &heroku
+    #     on:
+    #       all_branches: true
+    #       condition: $TRAVIS_BRANCH =~ ^master|develop$
+    #     skip_cleanup: true
+    #     provider: heroku
+    #     app: $([ ! "$TRAVIS_BRANCH" = "master" ] && echo $TRAVIS_BRANCH--)asterismo
+    #     api_key: $HEROKU_AUTH_TOKEN
+
+    - stage: Deploy
+      name: Deploy to github
+      deploy: &script
+        on:
+          all_branches: true
+          condition: $TRAVIS_BRANCH =~ ^master|develop$
+        skip_cleanup: true
+        provider: script
+        script: sh -x ./.github/github-deploy.sh
