@@ -1,0 +1,12 @@
+version: "3.4"
+services:  
+  nuxt:
+    image: gerardojunior/tap.client.environment:stable
+    build: .docker
+    volumes:
+      - type: bind
+        source: ./
+        target: /usr/share/src
+    ports:
+      - 3000:3000
+    command: dev
