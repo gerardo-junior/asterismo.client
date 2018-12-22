@@ -21,10 +21,7 @@ cache:
 
 jobs:  
   include:
-    - stage: Build
-      name: Build docker image  
-      script: docker-compose build
-
+  
     - stage: Tests
       name: Lint tests
       script: docker-compose run nuxt npm run test-lint
