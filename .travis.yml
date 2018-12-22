@@ -48,7 +48,7 @@ jobs:
           condition: $TRAVIS_BRANCH =~ ^master|develop$
         skip_cleanup: true
         provider: script
-        script:  sh -x ./.github/netlify-deploy.sh
+        script:  curl -X POST -d {} https://api.netlify.com/build_hooks/$([ "$TRAVIS_BRANCH" = "master" ] && echo $NETLIFY_BUILD_HOOK_PRODUCTION || echo $NETLIFY_BUILD_HOOK_STAGING)
 
     - stage: Deploy
       name: Deploy to github
