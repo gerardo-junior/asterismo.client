@@ -24,15 +24,15 @@ jobs:
   
     - stage: Tests
       name: Lint tests
-      script: docker-compose run nuxt npm run test-lint
+      script: docker-compose run nuxt test-lint
     
     - stage: Tests
       name: Unit tests
-      script: docker-compose run nuxt npm run test-unit
+      script: docker-compose run nuxt test-unit
 
     - stage: Tests
       name: e2e tests
-      script: docker-compose run nuxt npm run test-e2e
+      script: docker-compose run nuxt test-e2e
     
     - stage: Deploy
       name: Deploy to netlify
