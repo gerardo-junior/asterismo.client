@@ -17,7 +17,7 @@ cache:
   bundler: true
   directories:
     - $HOME/docker
-    - vendor
+    - node_modules
 
 jobs:  
   include:
