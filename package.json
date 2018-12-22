@@ -2,7 +2,7 @@
   "name": "asterismo",
   "version": "1.0.0",
   "description": "The github project manager",
-  "author": "Gerardo Junior &lt;me@gerardo-junior.com&gt;",
+  "author": "Gerardo Junior <me@gerardo-junior.com>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
