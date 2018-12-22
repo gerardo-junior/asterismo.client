@@ -37,16 +37,15 @@ jobs:
     #   name: e2e tests
     #   script: docker-compose run nuxt npm run test-e2e
     
-    # - stage: Deploy
-    #   name: Deploy to heroku
-    #   deploy: &heroku
-    #     on:
-    #       all_branches: true
-    #       condition: $TRAVIS_BRANCH =~ ^master|develop$
-    #     skip_cleanup: true
-    #     provider: heroku
-    #     app: $([ ! "$TRAVIS_BRANCH" = "master" ] && echo $TRAVIS_BRANCH--)asterismo
-    #     api_key: $HEROKU_AUTH_TOKEN
+    - stage: Deploy
+      name: Deploy to netlify
+      deploy: &script
+        on:
+          all_branches: true
+          condition: $TRAVIS_BRANCH =~ ^master|develop$
+        skip_cleanup: true
+        provider: script
+        script: curl -X POST -d {} https://api.netlify.com/build_hooks/$([ "$TRAVIS_BRANCH" = "master" ] && echo $NETLIFY_BUILD_HOOK_PRODUCTION || echo $NETLIFY_BUILD_HOOK_STAGING)
 
     - stage: Deploy
       name: Deploy to github
