@@ -34,3 +34,6 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+### License  
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
