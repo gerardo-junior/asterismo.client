@@ -1,5 +1,3 @@
-# Asterismo client
-
 [![Imagem](.github/assets/asterismo_logo.jpg)](https://asterismo.gerardo-junior.com/)
 
 > The github project manager
